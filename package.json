@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.10.4",
     "hjs": "0.0.6",
+    "node-sass-middleware": "^0.4.0",
     "socket.io": "^1.2.1"
   }
 }

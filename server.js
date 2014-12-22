@@ -1,5 +1,6 @@
 var path = require('path');
 var express = require('express');
+var sassMiddleware = require('node-sass-middleware');
 var app = express();
 var server = require('http').Server(app);
 var port = process.env.PORT || 8080;
@@ -7,6 +8,14 @@ var port = process.env.PORT || 8080;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
+
+app.use(
+    sassMiddleware({
+        src: path.join(__dirname, 'scss'),
+        dest: path.join(__dirname, 'public/static/css'),
+        prefix: '/static/css'
+    })
+);
 
 app.use('/static', express.static(path.join(__dirname, 'public/static')));
 
