@@ -1,9 +1,7 @@
 var server = require('./server');
 var io = require('socket.io')(server);
 
-var connections = {},
-    partner = {},
-    messagesFor = {};
+var connections = {};
 
 io.on('connection', function (socket) {
 
