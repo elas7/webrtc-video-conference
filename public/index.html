@@ -7,18 +7,14 @@
 </head>
 <body>
 
-<h1>WebRTC TEST</h1>
-<div id="setup">
-    <p>Key:
-        <input type="text" name="key" id="key">
-        <button id="connect">Connect</button>
-    </p>
-    <div class="status"></div>
-</div>
-<script src="/socket.io/socket.io.js"></script>
-<script src="static/libs/jquery/dist/jquery.min.js"></script>
-<script src='static/js/adapter.js'></script>
-<script src="static/js/main.js"></script>
+    <h1>WebRTC TEST</h1>
+    <video id="myVideo" autoplay="autoplay" controls muted="true"></video>
+    <video id="yourVideo" autoplay="autoplay" controls muted="true"></video>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="static/libs/jquery/dist/jquery.min.js"></script>
+    <script src='static/js/adapter.js'></script>
+    <script src="static/js/main.js"></script>
 
 </body>
 </html>

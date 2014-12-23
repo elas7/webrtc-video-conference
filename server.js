@@ -1,6 +1,7 @@
 var path = require('path');
 var express = require('express');
 var sassMiddleware = require('node-sass-middleware');
+var utils = require('./utils');
 var app = express();
 var server = require('http').Server(app);
 var port = process.env.PORT || 8080;
@@ -13,13 +14,17 @@ app.use(
     sassMiddleware({
         src: path.join(__dirname, 'scss'),
         dest: path.join(__dirname, 'public/static/css'),
-        prefix: '/static/css'
+        prefix: '/static/css',
+        outputStyle: 'compressed'
     })
 );
 
 app.use('/static', express.static(path.join(__dirname, 'public/static')));
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
+    if (req.url == '/') {
+        res.redirect('/' + utils.randomString(5));
+    }
     res.sendFile((path.join(__dirname, 'public', 'index.html')));
 });
 

@@ -7,23 +7,27 @@ var connections = {},
 
 io.on('connection', function (socket) {
 
-    socket.on('create or join', function (room_key) {
+    socket.on('create or join', function (room) {
         var rooms = io.sockets.adapter.rooms;
 
         // create a room if it doesn't exist
-        if (!(room_key in rooms)) {
-            socket.join(room_key);
-            socket.emit('created', room_key);
-            console.log('created room', room_key);
+        if (!(room in rooms)) {
+            socket.join(room);
+            socket.emit('created', room);
+            console.log('created room', room);
         } else {
             // join the room if it's not full
-            var numClients = Object.keys(rooms[room_key]).length;
+            var numClients = Object.keys(rooms[room]).length;
             if (numClients == 1) {
-                socket.join(room_key);
-                socket.emit('joined', room_key);
-                console.log('joined room', room_key);
+                socket.join(room);
+
+                // notify yourself and others in the room
+                socket.emit('joined', room);
+                socket.to(room).emit('join', room);
+
+                console.log('joined room', room);
             } else { // max two clients
-                console.log('room', room_key, 'is full');
+                console.log('room', room, 'is full');
             }
         }
         console.log(io.sockets.adapter.rooms);
