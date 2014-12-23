@@ -1,5 +1,54 @@
-video {
-  width: 320px;
-  height: 240px;
-  border: 1px solid black;
+$bgColor: rgba(255, 255, 255, 0.45);
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: url("../img/bg.jpg");
+  color: $bgColor;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  bottom: -0.59em;
+  font-size: 3em;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  line-height: 2em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.broadcast {
+
+  background: $bgColor;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  height: calc(80% - 8em);
+
+  video {
+    background: white;
+    border: 1px solid #999;
+    margin: 10px auto;
+    height: 240px;
+    width: 320px;
+  }
+}
+
+footer {
+  padding: 26px;
 }
