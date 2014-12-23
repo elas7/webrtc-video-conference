@@ -15,7 +15,6 @@
 
     socket.on('joined', function(room) {
         console.log('joined room', room);
-        socket.emit('message', room, 'Hola');
         connect();
     });
 
