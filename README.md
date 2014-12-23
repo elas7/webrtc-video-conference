@@ -1,4 +1,4 @@
-webrtc-demo
+webrtc-video-conference
 ===========
 
 Simple video conference app
