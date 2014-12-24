@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+      "bower": "1.3.x"
+  },
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
     "start": "node index.js",
