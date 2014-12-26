@@ -3,6 +3,8 @@ webrtc-video-conference
 
 Simple video conference app
 
+Demo: http://webrtc-video-conference.herokuapp.com
+
 Installation
 ----------------------------
 
