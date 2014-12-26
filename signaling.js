@@ -30,7 +30,6 @@
           console.log('room', room, 'is full');
         }
       }
-      console.log(io.sockets.adapter.rooms);
     });
 
     socket.on('message', function (room, message) {
